@@ -51,5 +51,6 @@
 	<modules>
 		<module>apace-discovery-server</module>
 		<module>apace-user-service</module>
+		<module>apace-edge-server</module>
 	</modules>
 </project>
