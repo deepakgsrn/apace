@@ -1,12 +1,13 @@
 /**
  * 
  */
-package com.de.apace.userservice;
+package com.de.apace.userservice.controller;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
+@RequestMapping(value = "/api/user")
 public class HomeController {
 
 	@GetMapping("/")
