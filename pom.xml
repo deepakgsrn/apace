@@ -10,7 +10,7 @@
 	<artifactId>apace-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Apace Parent</name>
+	<name>apace-parent</name>
 	<description>Parent Project holds the collection of projects for bootstrapping Microservices Application</description>
 
 	<properties>
