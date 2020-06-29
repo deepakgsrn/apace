@@ -11,15 +11,29 @@ eureka:
   client: 
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka} 
-#		defaultZone:http://localhost:8761/eureka
+#     defaultZone:http://localhost:8761/eureka
     instance:
       preferIpAddress: true
-        
+
+#https://github.com/spring-cloud/spring-cloud-netflix/issues/853
 zuul:
+#  ignoredServices: '*'
   routes:
-    user-service:
+    apace-user-service:
       path: /api/user/**
-      url: http://localhost:8080/api/user/
+#     url: http://localhost:8080/api/user/
+      serviceId: apace-user-service
+      stripPrefix: false
+#     sensitiveHeaders: Authorization
+
+#ribbon: 
+#  ConnectTimeout: 30000
+#  ReadTimeout: 990000
+#  maxAutoRetries: 1
+#  MaxAutoRetriesNextServer: 2
+#  eureka:
+#    enabled: true
+
       
 management:
   security: 
