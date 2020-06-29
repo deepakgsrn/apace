@@ -1,13 +1,56 @@
 spring:
+  profiles:
+    active: default
   application:
-    name: edge-server
+    name: apace-edge-server
     
 server:
   port: 9090
-  
+
+eureka:
+  client: 
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka} 
+#		defaultZone:http://localhost:8761/eureka
+    instance:
+      preferIpAddress: true
+        
 zuul:
   routes:
     user-service:
-      url: http://localhost:8080/
       path: /api/user/**
+      url: http://localhost:8080/api/user/
       
+management:
+  security: 
+    enabled: false 
+  endpoints:
+    web: 
+      exposure: 
+        include: health, info, metrics, routes
+  endpoint:
+    info:
+      enabled: true
+      management: 
+    health:
+      show-details: "ALWAYS"
+    routes:
+      enabled: true
+    filters:
+      enabled: true
+      
+---
+      
+# settings only applicable as per profile
+
+spring:
+  profiles: qa, prod
+  
+  
+---
+
+# settings only applicable as per profile
+
+spring:
+  profiles: prod
+   
